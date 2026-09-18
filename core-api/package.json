@@ -1,0 +1,20 @@
+{
+  "name": "racesim-core-api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.14.0" },
+  "scripts": {
+    "dev": "node --env-file-if-exists=../.env --import tsx --watch src/server.ts",
+    "build": "tsc",
+    "start": "node --env-file-if-exists=../.env dist/server.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": { "express": "^5.0.0" },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.9.0"
+  }
+}

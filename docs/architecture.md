@@ -1,6 +1,12 @@
 # RaceSim Architecture
 
-## System context
+## Milestone 1 implementation
+
+The three applications run as local host processes in `frontend/`, `core-api/`, and `simulation-api/`. Root Docker Compose runs only PostgreSQL 17 and MongoDB 8.0, with named persistent volumes, health checks, and localhost-only published ports. The root `.env.example` documents local configuration; application startup commands are in the README.
+
+The frontend is a static foundation page. Each API exposes `GET /health` for process liveness only. There are no application database schemas, API database connections, or inter-service calls yet. Prisma and the business workflow below remain planned for later milestones.
+
+## Planned system context
 
 RaceSim uses three application layers and two data stores. The locked V1 request path is:
 
@@ -74,7 +80,6 @@ The concrete failure and retry policy will be decided during the relevant implem
 - Environment variables provide configuration; secrets are never committed.
 - Swagger/OpenAPI describes REST contracts.
 - Automated tests cover meaningful business logic and service boundaries.
-- Docker Compose provides the local multi-service environment in a later milestone.
+- Docker Compose currently provides the two local databases; application containerization remains for a later milestone.
 - GitHub Actions runs the agreed verification checks in a later milestone.
 - A developer-facing architecture view is safe for display and excludes secrets and sensitive configuration.
-
